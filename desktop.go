@@ -102,10 +102,20 @@ func (state *desktop) sidebar(c *ui.Context) {
 					if profile.ID == state.id {
 						variant = action.Filled
 					}
-					if action.Button(c.Key(profile.ID), profile.Name, action.ButtonProps{Variant: variant}).
-						WidthPercent(100).Disabled(state.busy).Clicked() {
-						state.setProfile(profile)
-					}
+					ui.Row(c.Key(profile.ID)).Gap(4).AlignItems(ui.Center).Children(func() {
+						if action.Button(c.Key("select"), profile.Name, action.ButtonProps{Variant: variant}).
+							Grow(1).Basis(0).MinWidth(0).Disabled(state.busy).Clicked() {
+							state.setProfile(profile)
+						}
+						if state.button(c.Key("apply"), "应用", false, false) {
+							state.setProfile(profile)
+							state.plan()
+						}
+						if state.button(c.Key("delete"), "删除", false, !state.loaded) {
+							state.setProfile(profile)
+							state.confirmDelete = true
+						}
+					})
 				}
 			})
 		})
@@ -286,7 +296,7 @@ func (state *desktop) dialogs(c *ui.Context) {
 	if feedback.Modal(c.Key("delete"), &state.confirmDelete, feedback.ModalProps{
 		Title: "删除已保存方案", OkText: "确认删除", CancelText: "取消",
 	}, func() {
-		ui.Text(c, "确定删除当前已保存的方案吗？此操作不会修改网卡配置。")
+		ui.Text(c, "确定删除已保存的方案“"+state.name+"”吗？此操作不会修改网卡配置。")
 	}) && !state.busy {
 		state.confirmDelete = false
 		state.remove()
