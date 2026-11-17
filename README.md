@@ -27,6 +27,29 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build.ps1
 
 应用图标使用 `resources/icon.png`，当前采用 A3 网络小路由器设计。
 
+## GitHub Releases
+
+在仓库的 Releases 页面下载 Windows x64 安装包，或下载便携 ZIP 并完整解压后运行。发布附件包含 `SHA256SUMS.txt`，可用 `Get-FileHash <文件路径> -Algorithm SHA256` 核对。
+
+本地生成与发布流程相同的安装包、便携 ZIP、校验文件和中文发布说明：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-release.ps1
+```
+
+产物位于 `dist/release/v<版本号>/`。便携包包含程序、图标、示例配置、管理员启动脚本和 README。
+
+发布时先更新 `mygo.json` 的三段式版本号，并提交源码及 `.github/workflows/release.yml`，然后推送对应标签，例如：
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+GitHub Actions 会检出标签对应代码，按 `go.mod` 安装 Go，执行测试和打包，再上传附件并发布 Release。标签必须与 `mygo.json` 版本一致。也可在 Actions 的 Release 工作流中手动输入已存在的标签。无需额外配置个人访问令牌。
+
+已存在的 Release 不会被自动覆盖；若上传或发布失败，先在 Releases 页面检查并处理残留草稿，再重新运行工作流。
+
 ## 使用
 
 1. 选择目标网卡，核对名称、当前地址和网卡编号。
