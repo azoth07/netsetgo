@@ -1,0 +1,177 @@
+[
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9290257,
+    "text": "EnableStatic"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9290644,
+    "text": "EnableDHCP"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9290712,
+    "text": "SetDNSServerSearchOrder"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9290740,
+    "text": "SetDNSServerSearchOrder"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9354599,
+    "text": "TActivationForm"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9354678,
+    "text": "TActivationForm"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9358886,
+    "text": "TActivationForm"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9358962,
+    "text": "TActivationForm"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9359307,
+    "text": "TActivationForm"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9359346,
+    "text": "TActivationForm"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9367526,
+    "text": "TActivationForm"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9367787,
+    "text": "TActivationForm"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 9367830,
+    "text": "TActivationForm"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 10899382,
+    "text": "iphlpapi.dll"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 10912154,
+    "text": "iphlpapi.dll"
+  },
+  {
+    "encoding": "ASCII",
+    "fileOffset": 12783113,
+    "text": "TActivationForm"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 602616,
+    "text": "IpHlpApi.dll"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 5883704,
+    "text": "IPHLPAPI.DLL"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 5883732,
+    "text": "GetAdaptersInfo"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 5884380,
+    "text": "GetAdaptersAddresses"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 7472196,
+    "text": "GetAdaptersInfo"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 7472336,
+    "text": "GetAdaptersAddresses"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 7472636,
+    "text": "iphlpapi.dll"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9277016,
+    "text": "EnableDHCP"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9289840,
+    "text": "Win32_NetworkAdapterConfiguration"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9372434,
+    "text": "netsh.exe"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9373824,
+    "text": "Win32_NetworkAdapter"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9423292,
+    "text": "GetAdaptersInfo"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9425272,
+    "text": "EnableDHCP"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9428692,
+    "text": "iphlpapi.dll"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9570020,
+    "text": "iphlpapi.dll"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9669522,
+    "text": "netsh.exe"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9669656,
+    "text": "netsh.exe"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 9714952,
+    "text": "iphlpapi.dll"
+  },
+  {
+    "encoding": "Unicode",
+    "fileOffset": 10988584,
+    "text": "TACTIVATIONFORM"
+  }
+]

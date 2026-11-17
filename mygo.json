@@ -1,0 +1,10 @@
+{
+  "name": "NetSetGo",
+  "slug": "netsetgo",
+  "identifier": "com.netsetgo.app",
+  "version": "0.1.0",
+  "publisher": "NetSetGo",
+  "icon": "resources/icon.png",
+  "main": ".",
+  "out": "dist"
+}
