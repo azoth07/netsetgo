@@ -1,0 +1,14 @@
+{
+  "capturedAt": "2026-11-17T14:30:46.8500958+08:00",
+  "source": "PowerShell file metadata and SHA-256, not REA Evidence",
+  "target": "D:\\Program Files (x86)\\NetSetMan\\netsetman.exe",
+  "size": 13845720,
+  "sha256": "20E2630CAD777A84EF249A088B8721D1189CD2989A2C798F09F36789B26CC822",
+  "fileVersion": "5.4.0.0",
+  "productVersion": "5.4",
+  "helpPath": "D:\\Program Files (x86)\\NetSetMan\\NSM-Help\\nsm5help_en.htm",
+  "helpSha256": "9F80A54FA7306F36166F2E0874924A41751D80E20BAB1AAD090D821570B8FDF5",
+  "reaCli": "C:\\Users\\Administrator\\AppData\\Local\\npm-cache\\_npx\\af752b90495482d7\\node_modules\\rea-agents\\scripts\\rea.mjs",
+  "reaVersion": "6.9.0",
+  "nodeVersion": "v26.13.0"
+}

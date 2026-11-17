@@ -1,0 +1,53 @@
+189: Profiles
+190: Each profile represents a set of settings that are required for a certain location or scenario. By using subprofiles, multiple network adapters can be configured with a single profile. Profiles can be organized in profile groups.
+193: Manual configuration
+194: You need to configure the required profiles manually yourself. It's not possible to guess the correct settings for an unknown location. The main purpose of the application is to automate regular settings changes that you would usually do manually.
+197: Selection of settings
+199: Getting all current settings into a profile can give you a starting point, but you still need to decide which settings to apply when activating that profile. It's strongly recommended to limit the active settings to those that might actually change. For example it isn't necessary to apply a computer name if this setting is never changed.
+202: Configuration of settings
+203: To configure a setting, check its checkbox and either enter the desired configuration directly in the main interface or open the configuration dialog for that particular setting.
+206: Profile activation
+207: By default, no profile is activated automatically, i.e. no setting on your system is changed without your intention. Having said that, you can use the AutoSwitch feature to activate certain profiles automatically based on customizable conditions.
+210: Tray icon
+211: It's recommended to keep NetSetMan minimized in the tray and move its icon into the always visible area. That way, you can quickly activate a profile by clicking the icon and selecting a profile. Additionally, you will get a useful overview over all current IPs (and optionally further settings) just by pointing at the icon.
+218: Profiles
+222: A profile contains one or multiple sets ("subprofiles") of settings. All of them will be activated one after another when the profile is activated. You can rearrange their order by drag-and-drop.
+225: Profiles are organized in groups in the profile tree. Use can use drag-and-drop, the right-click context menu and common keyboard shortcuts (arrow keys for navigation, F2 for renaming, F3 for searching, etc.).
+228: Profiles and groups can be created, deleted and searched through the profile tree menu bar.
+231: All changes are saved automatically so nothing gets lost accidentally.
+234: The tooltip of a profile gives you a quick insight into the settings it contains. Selecting a group, displays an overview of all its profiles and their settings.
+246: Network Adapters (NIC = Network Interface Card)
+250: All available network adapters are displayed by their name and their type. Select the network adapter you would like to manage in the current (sub)profile.
+253: The list is updated automatically at program start, but you can also update it manually using its right-click context menu.
+256: If you copy the settings file (netsetman.xml) to another system, the selected network adapters do not exist there, so the selections are no longer valid. A similar problem could occur after a major driver update, causing Windows to treat an existing network adapter as a new device.
+257: NetSetMan will then try to reassign all network adapters in the profiles automatically using the network adapter name and its MAC address. Additional options for professional use are described here: Distribution in Company Networks.
+268: Settings Editing
+272: Getting Current Settings
+275: To read in a current setting from the system into a profile, click on the corresponding arrow button.
+276: To read in all current settings, right-click the profile and choose Get Current Settings.
+279: Clearing Settings
+282: To clear the configuration of a certain setting, right-click it and choose Clear.
+283: To clear the values of an IP field, simply double-click on its corresponding caption.
+286: Copying & Pasting Settings
+289: To duplicate a profile, use Copy/Paste in the context menu of the profile or simply press Ctrl+C/V.
+290: To copy and paste only a specific setting, right-click it and choose Copy/Paste.
+301: Profile Activation
+305: To apply all settings of the current profile, click the Activate button or if the program is running minimized select the profile from the tray menu. Notice, that only settings with a checked checkbox will be activated.
+308: The Activation dialog contains information about the current activation progress.  There you can see which settings are going to be applied and whether the process is successful or not. You can cancel the activation process by clicking the Cancel button at any time, however not all settings can be stopped immediately, so it might take a moment for the current action to complete.
+311: Before applying IP settings, NetSetMan first checks if they are different than the current system configuration. In case they are exactly the same, NetSetMan will skip this step and continue immediately without any delay. You will see a "Skip" message next to the address. If you want to force an update of the IP configuration in your system (even though nothing changed), you can do this by setting the Adapter Status to Restart in your profile. Windows will then reinitialize the network adapter configuration.
+314: All changes are applied immediately. However, in certain cases some settings take a short while to take full effect or require a reboot (especially PC Name and Workgroup/Domain).
+317: To view more information and error messages in full length open up the Log section at the bottom.
+320: To find solutions for the most common errors and problems, visit our FAQ and our support forum.
+412: Advanced TCP/IP Settings
+416: IP, Gateway and DNS addresses are a core feature of NetSetMan, that's why they can be configured directly on the main interface.
+419: If you want to add multiple IP, Gateway, DNS and WINS addresses to a network adapter so you can be in several networks at the same time, you can do this by clicking the IP+ button.
+422: Here you also have the possibility to manage more advanced settings like IPv6 addresses, Route Table, DNS Suffix, IPConfig, NetBIOS and Interface Metric.
+433: Adapter Status
+437: You can enable, disable or restart the selected network adapter.
+440: If you want to enable one adapter and disable one or all other adapters, you need to create subprofiles for each of the adapters. You can do this manually or by using the context menu, which can automatically create a subprofile for each network adapter that is included in the adapter list and configure its status setting accordingly.
+885: NetSetMan Service / Limited User Account
+889: NetSetMan requires administrator privileges to be able to change network and system settings for you. Normally, running such an application isn't possible for a limited user account. Even administrator accounts display a warning dialog at each program start if UAC (User Account Control) is enabled.
+892: To solve this issue, NetSetMan includes a special component called NetSetMan Service that provides the main application with the required privileges.
+895: The installed service is visible in the Windows Services dialog (services.msc) and can be controlled there as well. Additionally it can be installed/uninstalled or started/stopped using command-line:nsmservice.exe /install /silent nsmservice.exe /uninstall /silent net start nsmService net stop nsmService
+898: If you get the error "Invalid signature", make sure the program exe hasn't been modified and the associated Windows group policy is disabled: "Turn off Automatic Root Certificates Update".
+901: If you run NetSetMan with a limited user account where NetSetMan Service isn't available, you will receive a message explaining the problem. As an alternative, you can input administrator credentials from a local account that NetSetMan will store encrypted in its settings file and use to launch itself with the required privileges. Notice, that in this case the application will run in the context of the user whose credentials were used.
