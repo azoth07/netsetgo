@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing release tag matching mygo.json (e.g. v0.1.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    env:
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Validate tag
+        run: |
+          if ($env:RELEASE_TAG -cnotmatch '^v\d+\.\d+\.\d+$') {
+            throw 'Release tag must use vMajor.Minor.Patch format.'
+          }
+
+      - uses: actions/checkout@v6
+        with:
+          ref: refs/tags/${{ env.RELEASE_TAG }}
+          persist-credentials: false
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+
+      - name: Test, build and package
+        run: ./scripts/package-release.ps1 -Tag $env:RELEASE_TAG
+
+      - name: Publish release
+        run: |
+          $directory = "dist/release/$env:RELEASE_TAG"
+          $version = $env:RELEASE_TAG.Substring(1)
+          $assets = @(
+            "$directory/netsetgo-setup-$version-amd64.exe"
+            "$directory/netsetgo-$version-windows-amd64.zip"
+            "$directory/SHA256SUMS.txt"
+          )
+          gh release create $env:RELEASE_TAG @assets --verify-tag --draft --title "NetSetGo $env:RELEASE_TAG" --notes-file "$directory/RELEASE_NOTES.md"
+          if ($LASTEXITCODE -ne 0) { throw 'Release creation failed. Check for an existing release before retrying.' }
+          gh release edit $env:RELEASE_TAG --draft=false
+          if ($LASTEXITCODE -ne 0) { throw 'Publishing failed; the uploaded release remains a draft.' }
